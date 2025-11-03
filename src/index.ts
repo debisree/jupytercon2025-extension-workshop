@@ -2,6 +2,8 @@ import { requestAPI } from './request';
 import { ImageCaptionMainAreaWidget } from './widget';
 import { JupyterFrontEnd, JupyterFrontEndPlugin } from '@jupyterlab/application';
 import { ICommandPalette } from '@jupyterlab/apputils';
+import { imageIcon } from '@jupyterlab/ui-components';
+
 
 /**
  * Initialization data for the jupytercon2025-extension-workshop extension.
@@ -31,11 +33,15 @@ const plugin: JupyterFrontEndPlugin<void> = {
         const widget = new ImageCaptionMainAreaWidget();
         app.shell.add(widget, 'main');
       },
+      icon: imageIcon,
       label: 'View a random image & caption'
     });
 
     palette.addItem({ command: command_id, category: 'Tutorial' });
   }
 };
+
+
+
 
 export default plugin;
